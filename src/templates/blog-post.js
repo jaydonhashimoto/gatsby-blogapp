@@ -15,15 +15,35 @@ export default function Template({ data }) {
 }
 
 export const postQuery = graphql`
-    query BlogPostByPath($path: String!) {
-        markdownRemark(frontmatter: { path: {eq: $path} }) {
+    query BlogPostByPath($path: String!) 
+    {
+        markdownRemark
+        (
+            frontmatter: 
+            { 
+                path: {eq: $path}
+            }
+        ) 
+        {
             html
-            frontmatter {
+            frontmatter 
+            {
                 path
                 title
                 author
                 date
+                cover_image
+                {
+                    childImageSharp 
+                    {
+                        fluid(maxWidth: 1000) 
+                        {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
             }
         }
     }
 `
+
