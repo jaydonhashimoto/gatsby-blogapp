@@ -1,7 +1,8 @@
 import React from "react"
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Img from '../components/image'
 
 const BlogPage = ({ data }) => (
     <Layout>
@@ -16,6 +17,7 @@ const BlogPage = ({ data }) => (
                 <br /><br /> <br />
             </div>
         ))}
+        <Img />
         <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         </div>
     </Layout>
@@ -23,7 +25,7 @@ const BlogPage = ({ data }) => (
 
 export const pageQuery = graphql`
     query BlogIndexQuery {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 3) {
             edges {
                 node {
                     id
