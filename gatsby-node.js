@@ -9,8 +9,8 @@
 //REGISTERS DATA PATH WITH URL  -idk what this page does
 const path = require('path');
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-    const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+    const { createPage } = actions;
 
     const postTemplate = path.resolve('src/templates/blog-post.js');
 

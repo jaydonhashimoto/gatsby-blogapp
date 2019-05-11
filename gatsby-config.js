@@ -50,8 +50,8 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 1000,
               linkImagesToOriginal: true,
-              sizeByPixelDensity: true,
-              showCaptions: true,
+              //sizeByPixelDensity: true,
+              //showCaptions: true,
             },
           },
         ],
